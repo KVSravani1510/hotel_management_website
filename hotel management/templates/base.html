@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hotel KVS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='bg.jpeg') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<div class="nav">
+    <a href="/dashboard">Dashboard</a>
+    <a href="/add">Add Guest</a>
+    <a href="/records">Records</a>
+    <a href="/rooms/single">Single</a>
+    <a href="/rooms/double">Double</a>
+    <a href="/rooms/suite">Suite</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<div class="main">
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>

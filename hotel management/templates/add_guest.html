@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Add Guest</h2>
+<center>
+<form method="post" class="form">
+
+<label>Name</label>
+<input name="name" required>
+
+<label>Phone</label>
+<input name="phone" required>
+
+<label>Room Type</label>
+<select name="rtype" required>
+    {% for t in rooms %}
+    <option value="{{ t }}">{{ t }}</option>
+    {% endfor %}
+</select>
+
+<label>Room</label>
+<select name="room" required>
+    {% for t, nums in rooms.items() %}
+        {% for n in nums %}
+            <option value="{{ n }}">{{ n }}</option>
+        {% endfor %}
+    {% endfor %}
+</select>
+
+<label>Hours</label>
+<select name="hrs">
+    <option value="24">24</option>
+    <option value="48">48</option>
+    <option value="72">72</option>
+    <option value="96">96</option>
+    <option value="120">120</option>
+</select>
+
+<label>AC / Non AC</label>
+<select name="ac">
+    <option value="AC">AC</option>
+    <option value="Non-AC">Non-AC</option>
+</select>
+
+<button>Save</button>
+
+</form>
+</center>
+{% endblock %}

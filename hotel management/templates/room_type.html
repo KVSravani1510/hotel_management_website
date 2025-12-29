@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<center>
+<h2>{{ rtype|capitalize }} Rooms</h2>
+<div class="grid">
+    {% for r in rooms %}
+    <a href="/room/{{ r.num }}" style="text-decoration:none; color:black;">
+<div class="room {% if r.free %}green{% else %}red{% endif %}">{{ r.num }}</div>
+</a>
+    {% endfor %}
+</div>
+</center>
+{% endblock %}

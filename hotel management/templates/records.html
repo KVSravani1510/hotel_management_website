@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<center>
+<h2>Guest Records</h2>
+<table>
+<tr>
+    <th>Name</th><th>Phone</th><th>Room</th><th>Type</th><th>AC</th>
+    <th>Check-in</th><th>Out</th><th>Status</th><th>Amount</th><th>Action</th>
+</tr>
+{% for g in guests %}
+<tr>
+    <td>{{ g.name }}</td>
+    <td>{{ g.phone }}</td>
+    <td>{{ g.room }}</td>
+    <td>{{ g.type }}</td>
+    <td>{{ g.ac }}</td>
+    <td>{{ g.in.strftime('%Y-%m-%d %H:%M') }}</td>
+    <td>{{ g.out.strftime('%Y-%m-%d %H:%M') }}</td>
+    <td>{{ g.status }}</td>
+    <td>{{ g.amount }}</td>
+    <td>
+        {% if g.status == 'IN' %}
+        <a href="/checkout/{{ g.room }}">Checkout</a>
+        {% endif %}
+    </td>
+</tr>
+{% endfor %}
+</table>
+</center>
+{% endblock %}
